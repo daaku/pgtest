@@ -1,0 +1,12 @@
+language: go
+
+go:
+  - 1.x
+
+before_install:
+  - go get -v github.com/golang/lint/golint
+
+script:
+  - go vet ./...
+  - $HOME/gopath/bin/golint .
+  - go test -cpu=2 -v ./...
